@@ -61,6 +61,9 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " vim plugin setting start
 set nocompatible
+"行頭行末の左右移動で行をまたぐ
+set whichwrap=b,s,h,l,<,>,[,]
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -71,13 +74,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-jp/vimdoc-ja'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 filetype plugin indent on
 " vim plugin setting end
 
 set helplang=ja,en
-
 " colorscheme
 colorscheme lucius
 set background=dark
@@ -88,3 +95,7 @@ set t_Co=256
 set termguicolors
 " 背景色
 set background=dark
+
+" original keymap
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+

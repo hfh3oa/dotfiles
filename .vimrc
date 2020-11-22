@@ -1,4 +1,3 @@
-" setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
@@ -35,17 +34,15 @@ nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
 
-" Tab系
-" 不可視文字を可視化(タブが「▸-」と表示される)
+" タブが「▸-」と表示される
 set list listchars=tab:\▸\-
 " Tab文字を半角スペースにする
 set expandtab
-" 行頭以外のTab文字の表示幅（スペースいくつ分）
+" 行頭以外のTab文字の表示幅
 set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
 
-" 検索系
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
 " 検索文字列に大文字が含まれている場合は区別して検索する
@@ -59,7 +56,7 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" vim plugin setting start
+" vundle
 set nocompatible
 "行頭行末の左右移動で行をまたぐ
 set whichwrap=b,s,h,l,<,>,[,]
@@ -68,9 +65,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" プラグインの導入
 Plugin 'VundleVim/Vundle.vim'
-
-" 導入したいプラグインを以下に列挙
 Plugin 'vim-jp/vimdoc-ja'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'tomasr/molokai'
@@ -79,16 +75,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
+
 filetype plugin indent on
-" vim plugin setting end
 
 set helplang=ja,en
 " colorscheme
 colorscheme lucius
 set background=dark
-let g:ligthline = { 'colorscheme': 'lucius' }
 syntax on
 set t_Co=256
 " truecolor
@@ -96,7 +92,10 @@ set termguicolors
 " 背景色
 set background=dark
 
-" original keymap
+" NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"
+" lightline
+let g:lightline = {'colorscheme': 'wombat'}
 
 " window系

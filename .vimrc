@@ -53,8 +53,6 @@ set incsearch
 set wrapscan
 " 検索語をハイライト表示
 set hlsearch
-" ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " vundle
 set nocompatible
@@ -81,6 +79,7 @@ call vundle#end()
 
 filetype plugin indent on
 
+" ヘルプを日本語化
 set helplang=ja,en
 " colorscheme
 colorscheme lucius
@@ -95,8 +94,45 @@ set background=dark
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+" 起動時に NERDTree を開く
+autocmd vimenter * NERDTree
+" 起動時にメイン画面にカーソルを合わせる(NERDTreeには合わせない)
+autocmd VimEnter * wincmd p
 
 " lightline
 let g:lightline = {'colorscheme': 'wombat'}
 
-" window系
+" keymap
+" xやsでレジスタに追加しない
+nnoremap x "_x
+nnoremap s "_s
+
+" ESC連打でハイライト解除
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" 置換コマンドを楽にする
+noremap <Space>s :%s/
+
+" window/画面分割 系
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>p
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap s> <C-w>>
+nnoremap s< <C-w><
+nnoremap s+ <C-w>+
+nnoremap s- <C-w>-
+
+"タブ操作
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sn gt
+nnoremap sp gT
+

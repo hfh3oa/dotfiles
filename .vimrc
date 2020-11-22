@@ -69,6 +69,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " 導入したいプラグインを以下に列挙
 Plugin 'vim-jp/vimdoc-ja'
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'tomasr/molokai'
 
 call vundle#end()
 filetype plugin indent on
@@ -76,3 +78,13 @@ filetype plugin indent on
 
 set helplang=ja,en
 
+" colorscheme
+colorscheme lucius
+set background=dark
+let g:ligthline = { 'colorscheme': 'lucius' }
+syntax on
+set t_Co=256
+" truecolor
+set termguicolors
+" 背景色
+set background=dark

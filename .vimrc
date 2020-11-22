@@ -99,3 +99,4 @@ set background=dark
 " original keymap
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+" window系

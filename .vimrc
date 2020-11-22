@@ -94,7 +94,8 @@ set background=dark
 
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-"
+let NERDTreeShowHidden=1
+
 " lightline
 let g:lightline = {'colorscheme': 'wombat'}
 

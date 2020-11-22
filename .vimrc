@@ -58,3 +58,21 @@ set wrapscan
 set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" vim plugin setting start
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+" 導入したいプラグインを以下に列挙
+Plugin 'vim-jp/vimdoc-ja'
+
+call vundle#end()
+filetype plugin indent on
+" vim plugin setting end
+
+set helplang=ja,en
+

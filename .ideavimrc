@@ -99,8 +99,8 @@ nnoremap [<Space> O<Esc>j
 nnoremap ]<Space> o<Esc>k
 
 nnoremap K :<C-u>action QuickJavaDoc<CR> " JavaDocを表示
-nnoremap gjK :<C-u>action GotoDeclaration<CR> " インターフェイスへジャンプ
-nnoremap gjk :<C-u>action GotoTypeDeclaration<CR> " 宣言へジャンプ
+nnoremap gjI :<C-u>action GotoDeclaration<CR> " インターフェイスへジャンプ
+nnoremap gjd :<C-u>action GotoTypeDeclaration<CR> " 宣言へジャンプ
 nnoremap gji :<C-u>action GotoImplementation<CR> " 実装クラスへジャンプ
 nnoremap gjs :<C-u>action GotoSuperMethod<CR> " スーパークラスへジャンプ
 nnoremap gjt :<C-u>action GotoTest<CR> " テストクラスへジャンプ

@@ -1,0 +1,144 @@
+" 検索するときに大文字小文字を区別しない
+set ignorecase
+
+" 検索時に大文字を含んでいたら大/小を区別
+set smartcase
+
+" インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
+set incsearch
+
+" 検索対象をハイライト
+set hlsearch
+
+" 対応する括弧やブレースを表示
+set showmatch matchtime=1
+
+" メッセージ表示欄を2行確保
+set cmdheight=2
+
+" ステータス行を常に表示
+set laststatus=2
+
+" ウィンドウの右下にまだ実行していない入力中のコマンドを表示
+set showcmd
+
+" 省略されずに表示
+set display=lastline
+
+" 行末のスペースを可視化
+set listchars=tab:^\ ,trail:~
+
+" ヤンクでクリップボードにコピー
+set clipboard+=unnamed
+
+" 対応する括弧を強調表示
+set showmatch
+
+" Escの2回押しでハイライト消去
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+
+" 行をまたいで移動
+set whichwrap=b,s,h,l,<,>,[,],~
+
+" インデント方法の変更
+set cinoptions+=:0
+
+" インデント幅
+set shiftwidth=2
+
+" タブキー押下時に挿入される文字幅を指定
+set softtabstop=2
+
+"x キー削除でデフォルトレジスタに入れない
+nnoremap x "_x
+vnoremap x "_x
+
+" ヤンクでクリップボードにコピー
+noremap "+y "*y
+noremap "+Y "*Y
+noremap "+p "*p
+noremap "+P "*P
+noremap <C-S-c> "*y
+noremap <C-S-v> "*P
+
+" コード折り畳みを無効化
+nnoremap zM <Nop>
+nnoremap zc <Nop>
+nnoremap zC <Nop>
+nnoremap zR <Nop>
+nnoremap zo <Nop>
+nnoremap zO <Nop>
+
+" surround を有効化
+" https://github.com/tpope/vim-surround
+set surround
+
+" AceJump を呼び出す
+nnoremap <Space><Space> :<C-u>action AceAction<CR>
+
+" ジャンプ機能
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+nnoremap <C-S-o> <C-o>
+nnoremap <C-S-i> <C-i>
+
+" 前/次のメソッド定義へジャンプ
+nnoremap [m :<C-u>action MethodUp<CR>
+nnoremap ]m :<C-u>action MethodDown<CR>
+
+" 前/次の変更箇所へジャンプ
+nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
+
+" 前/次のエラー箇所へジャンプ
+nnoremap [e :<C-u>action GotoPreviousError<CR>
+nnoremap ]e :<C-u>action GotoNextError<CR>
+
+" 現在の行の前/後に空行を挿入する
+nnoremap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k
+
+nnoremap K :<C-u>action QuickJavaDoc<CR> " JavaDocを表示
+nnoremap gjK :<C-u>action GotoDeclaration<CR> " インターフェイスへジャンプ
+nnoremap gjk :<C-u>action GotoTypeDeclaration<CR> " 宣言へジャンプ
+nnoremap gji :<C-u>action GotoImplementation<CR> " 実装クラスへジャンプ
+nnoremap gjs :<C-u>action GotoSuperMethod<CR> " スーパークラスへジャンプ
+nnoremap gjt :<C-u>action GotoTest<CR> " テストクラスへジャンプ
+nnoremap <C-k> :<C-u>action ShowUsages<CR> " 出現箇所の検索
+
+" コードリファクタリング
+nnoremap cre :<C-u>action RenameElement<CR> " 名前を変更
+nnoremap cs :<C-u>action ChangeSignature<CR> " シグネチャを変更
+nnoremap cts :<C-u>action ChangeTypeSignature<CR> " シグネチャタイプを変更
+
+" IDEのリッチな機能にキーバインドを割り当てる
+nnoremap <Space>a :<C-u>action GotoAction<CR> " IDEアクションを検索
+nnoremap <Space>G :<C-u>action Generate<CR> " コード生成メニューを表示
+nnoremap <Space>gn :<C-u>action NewClass<CR> " 新規クラスを生成
+nnoremap <Space>go :<C-u>action OverrideMethods<CR> " メソッドをオーバーライド
+nnoremap <Space>gc :<C-u>action GenerateConstructor<CR> " コンストラクタを生成
+nnoremap <Space>gg :<C-u>action GenerateGetter<CR> " Getter を生成
+nnoremap <Space>gs :<C-u>action GenerateSetter<CR> " Setter を生成
+nnoremap <Space>ga :<C-u>action GenerateGetterAndSetter<CR> " Getter/Setter を生成
+nnoremap <Space>ge :<C-u>action GenerateEquals<CR> " equals を生成
+nnoremap <Space>gt :<C-u>action GenerateTestMethod<CR> " 
+nnoremap <Space>= :<C-u>action ReformatCode<CR> " 行をフォーマット
+nnoremap <Space>o :<C-u>action FileStructurePopup<CR> " アウトラインを表示
+nnoremap <Space>q :<C-u>action CloseContent<CR> " 現在のバッファを閉じる
+nnoremap <Space>Q :<C-u>action ReopenClosedTab<CR> " 最後の閉じたバッファを開く
+nnoremap <Space>e :<C-u>action SearchEverywhere<CR> " どこでも検索
+nnoremap <Space>f :<C-u>action GotoFile<CR> " ファイルを検索
+nnoremap <Space>F :<C-u>action FindInPath<CR> " ファイルを全文検索
+nnoremap <Space>c :<C-u>action GotoClass<CR> " クラスを検索
+nnoremap <Space>S :<C-u>action GotoSymbol<CR> " シンボルを検索
+nnoremap <Space>t :<C-u>action ActivateTerminalToolWindow<CR> " ターミナルを表示
+nnoremap <Space>P :<C-u>action ManageRecentProjects<CR> " プロジェクト管理
+nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR> " ブレークポイント設定
+
+" 前回の変更箇所へジャンプ
+nnoremap g; :<C-u>action JumpToLastChange<CR>
+nnoremap g, :<C-u>action JumpToNextChange<CR>
+
+" 現在開いているタブ以外を閉じる。
+nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>
+
